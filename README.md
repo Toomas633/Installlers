@@ -3,6 +3,7 @@
   * [Xmrig install script:](#xmrig-install-script)
     + [To install:](#to-install)
     + [Optional:](#optional)
+  * [Donate:](#donate)
 
 ## Xmrig install script:
 Automatic cloning, building and configuring of xmrig for PiOSx64 or Ubuntu (server).
@@ -20,4 +21,4 @@ Monero: `8Ajf5M6meNpL9TaHuDRbXjAH31LcQ9ge5BEiwMZjLaoiMDZRxaVy19FgbP4tbUKpKoeq1kq
 
 Bitcoin: `3NPFV9ivECdSgyCXeNk4h5Gm3q1xiDRnPV`
 
-More options on https://toomas633.com/donate
+More options on https://toomas633.com/donate.html

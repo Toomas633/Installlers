@@ -1,4 +1,4 @@
-#!/bin/sh
+#! /bin/bash
 sudo apt update
 adduser miner --gecos "First Last,RoomNumber,WorkPhone,HomePhone" --disabled-password
 echo "miner:miner" | sudo chpasswd

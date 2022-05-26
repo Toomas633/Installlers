@@ -69,7 +69,7 @@ cat > config.json << EOF
 }
 EOF
 
-echo ----Enabling autostart service---- 
+echo ----Building autostart service---- 
 
 sleep 3
 cat > /etc/systemd/system/xmrig.service << EOF 
@@ -88,24 +88,17 @@ User=miner
 WantedBy=multi-user.target
 EOF
 
-echo enable automatic start / service (yes/no)
-read service_status
+read -n4 -p "enable automatic start service (yes/no):" service_status
+case $service_status in
+  y|Y|yes|Yes|YES) systemctl enable xmrig.service ;; 
+  n|N|no|No|NO) echo skiping ;;
+esac
 
-if [$service_status = yes]
-then
-  systemctl enable xmrig.service
-fi
-
-echo Start service (yes/no):
-read start_status
-
-if [$start = yes]
-then
-  echo ----Starting xmrig service----
-
-  sleep 3
-  service xmrig start
-fi
+read -n4 -p "start xmrig (yes/no):" start_status
+case $start_status in
+  y|Y|yes|Yes|YES) systemctl start xmrig.service ;; 
+  n|N|no|No|NO) echo skiping ;;
+esac
 
 echo ______________________________
 echo

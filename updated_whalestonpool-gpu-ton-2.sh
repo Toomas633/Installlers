@@ -1,6 +1,4 @@
-#!/bin/bash
-#!/bin/sh
-#!/bin/bash
+#! /bin/bash
 
 apt-get update && apt-get full-upgrade
 apt -y install wget curl unzip screen autoconf git cmake binutils build-essential net-tools golang

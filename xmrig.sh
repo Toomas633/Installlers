@@ -19,6 +19,7 @@ echo ----Starting installation----
 echo ----Installing packets----
 
 sleep 3
+apt update
 apt install -y git build-essential cmake libuv1-dev libssl-dev libhwloc-dev
 
 echo ----Creating user miner----
@@ -113,3 +114,4 @@ echo ----'Quiting in 3 seconds'----
 echo ______________________________
 sleep 3
 clear
+run-parts /etc/update-motd/

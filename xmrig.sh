@@ -114,4 +114,4 @@ echo ----'Quiting in 3 seconds'----
 echo ______________________________
 sleep 3
 clear
-run-parts /etc/update-motd/
+run-parts /etc/update-motd.d/

@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /bin/bash
 echo Updating Portainer CE
 sudo docker stop portainer
 sudo docker rm portainer

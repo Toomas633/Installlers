@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 sudo docker stop portainer_agent
 sudo docker rm portainer_agent
 sudo docker pull portainer/agent:latest

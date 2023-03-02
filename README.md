@@ -1,4 +1,5 @@
 # Installers
+# !!!OUT OF DATE!!! use raw links from files will update readme soon  !!!
 - [Installers](#installers)
   * [Xmrig install script:](#xmrig-install-script)
     + [To install:](#to-install)

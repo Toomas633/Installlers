@@ -1,6 +1,6 @@
 import os
 import subprocess
-
+# get working directory
 rootDir = os.getcwd()
 # Command-line argument was provided
 for dirName, subdirList, fileList in os.walk(rootDir):

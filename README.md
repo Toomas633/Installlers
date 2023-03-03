@@ -179,6 +179,7 @@ Dir containing organizer.py
 
 ### Organizer features
 
+* Log file in the same dir called organizer.log (time stamp and operation) (editable in code) 
 * Removes unwanted files
 * Moves certain files out of subfolders
 * Deletes empty folders

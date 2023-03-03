@@ -28,7 +28,7 @@ def mover(rootDir):
                     if os.path.exists(os.path.join(root, subdir, file[:-4] + ".srt")):
                         # move the .srt file out of the subfolder
                         shutil.move(os.path.join(root, subdir, file[:-4] + ".srt"), root)
-                        logging.info('Sub file ' + file +  'moved in ' + rootDir)
+                        logging.info('Sub file ' + os.path.join(file[:-4] + ".srt") +  'moved in ' + os.path.join(root, subdir))
 
 def empty(rootDir):
     # Walk through the path and delete empty subfolders
@@ -37,7 +37,7 @@ def empty(rootDir):
             full_path = os.path.join(root, dir)
             if not os.listdir(full_path):
                 shutil.rmtree(full_path)
-                logging.info('Empty folder ' + dir + ' deleted in ' + rootDir)
+                logging.info('Empty folder ' + dir + ' deleted in ' + root)
 
 # set /movies as working dir and run
 logging.info('Running')

@@ -109,6 +109,7 @@ Default file is set up for using with Plex for cleaning up torrent downloads (mo
 **PS! The file must be placed into the folder in which you want the subfolders to be organized!**
 
 ### Default organizer configuration
+Organizes the movies and tv directories. placed in the folder that contains them.
 
 ```
 Dir containing organizer.py
@@ -178,23 +179,15 @@ Dir containing organizer.py
 
 ### Organizer features
 
-* Runs hourly (baked in timer)
 * Removes unwanted files
 * Moves certain files out of subfolders
 * Deletes empty folders
 * Default config for torrenting uses the .!qB extention for not deleting mid download files (check qbittorrent settings for enabling it)
 
-Make sure the following dependencies are installed via `pip install 'name'` on debian or `python -m pip install 'name'` on windows:
-
-* os
-* shutil
-* logging
-* schedule
-* time
-
 ### Running organizer
-* Download with `sudo wget https://raw.githubusercontent.com/Toomas633/Scripts/main/organizer.py`
-
+* Download with `sudo wget https://raw.githubusercontent.com/Toomas633/Scripts/main/organizer.py` and place it into the folder you want it to search through (see example above)
+  * Run it in the backround while being in the same folder with `nohup python organizer.py`
+  * Or run it always after reboot with cron job by adding `0 * * * * python /'path to folder'/organizer.py` using `sudo crontab -e` and adding it to the end of the file
 # Donate
 
 Monero: `8Ajf5M6meNpL9TaHuDRbXjAH31LcQ9ge5BEiwMZjLaoiMDZRxaVy19FgbP4tbUKpKoeq1kqCvjyaTdmCMQGhekWoQ2KgVeV`

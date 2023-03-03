@@ -17,30 +17,37 @@ def remover(rootDir):
                 continue
             # otherwise, delete it
             os.remove(os.path.join(dirName, fname))
-            logging.info('File ' + fname + ' deleted in ' + rootDir)
+            logging.info('File ' + fname + ' deleted in ' + dirName)
             
 def mover(rootDir):
+    # Walk through the path
     for root, dirs, files in os.walk(rootDir):
+        # loop through each file
         for file in files:
+            # if there is a .mkv file
             if file.endswith(".mkv"):
-                # check the directory for a .srt file
+                # go through the sub directories
                 for subdir in dirs:
+                    # check the directory for a .srt file
                     if os.path.exists(os.path.join(root, subdir, file[:-4] + ".srt")):
                         # move the .srt file out of the subfolder
                         shutil.move(os.path.join(root, subdir, file[:-4] + ".srt"), root)
-                        logging.info('Sub file ' + os.path.join(file[:-4] + ".srt") +  'moved in ' + os.path.join(root, subdir))
+                        logging.info('Sub file ' + os.path.join(file[:-4] + ".srt") +  ' moved in ' + os.path.join(root, subdir))
 
 def empty(rootDir):
-    # Walk through the path and delete empty subfolders
+    # Walk through the path
     for root, dirs, files in os.walk(rootDir):
+        # walk through subfolders
         for dir in dirs:
+            # generate directory path
             full_path = os.path.join(root, dir)
+            # if path empty delete folder
             if not os.listdir(full_path):
                 shutil.rmtree(full_path)
                 logging.info('Empty folder ' + dir + ' deleted in ' + root)
 
 # set /movies as working dir and run
-logging.info('Running')
+logging.info('------------------------------ Starting ------------------------------')
 rootDir = dir + '/movies'
 remover(rootDir)
 mover(rootDir)
@@ -50,4 +57,4 @@ rootDir = dir + '/tv'
 remover(rootDir)
 mover(rootDir)
 empty(rootDir)
-logging.info('Done')
+logging.info('-------------------------------- Done --------------------------------')

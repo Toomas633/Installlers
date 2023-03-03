@@ -46,8 +46,10 @@ def organizer(rootDir):
     logging.info('Empty folders deleted' + rootDir)
 
 # set /movies as working dir and run
+logging.debug('Organizing /movies dir')
 rootDir = dir + '/movies/'
 organizer(rootDir)
 # set /tv as working dir and run
+logging.debug('Organizing /tv dir')
 rootDir = dir + '/tv/'
 organizer(rootDir)

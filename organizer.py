@@ -1,21 +1,11 @@
 import os
 import shutil
 import logging
-import schedule
-import time
 
 # get working directory
 dir = os.getcwd()
 # Write status to log file
 logging.basicConfig(filename='organizer.log', level=logging.INFO, format='%(asctime)s %(message)s')
-
-def job():
-    # set /movies as working dir and run
-    rootDir = dir + '/movies/'
-    organizer(rootDir)
-    # set /tv as working dir and run
-    rootDir = dir + '/tv/'
-    organizer(rootDir)
     
 def organizer(rootDir):
     # Command-line argument was provided
@@ -55,10 +45,9 @@ def organizer(rootDir):
                 os.rmdir(filename)
     logging.info('Empty folders deleted' + rootDir)
 
-# Run every hour
-schedule.every().hour.do(job)
-while True:
-    logging.debug('Running script')
-    schedule.run_pending()
-    logging.debug('Sleeping for 1h')
-    time.sleep(1)
+# set /movies as working dir and run
+rootDir = dir + '/movies/'
+organizer(rootDir)
+# set /tv as working dir and run
+rootDir = dir + '/tv/'
+organizer(rootDir)

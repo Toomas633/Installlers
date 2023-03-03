@@ -8,7 +8,6 @@ dir = os.getcwd()
 logging.basicConfig(filename='organizer.log', level=logging.INFO, format='%(asctime)s %(message)s')
     
 def remover(rootDir):
-    logging.info('Removing files in ' + rootDir)
     # Command-line argument was provided
     for dirName, subdirList, fileList in os.walk(rootDir):
         # loop through each file
@@ -21,7 +20,6 @@ def remover(rootDir):
             logging.info('File ' + fname + ' deleted in ' + rootDir)
             
 def mover(rootDir):
-    logging.info('Moving files in ' + rootDir)
     # Walk through subdirectories
     for root, dirs, files in os.walk(rootDir):
         # Check if there is a .mkV file
@@ -39,7 +37,6 @@ def mover(rootDir):
                             logging.info('Sub file ' + fname +  'moved in ' + rootDir)
 
 def empty(rootDir):
-    logging.info('Removing empty folders in' + rootDir)
     # Walk through the path and delete empty subfolders
     for root, dirs, files in os.walk(rootDir):
         for dir in dirs:
@@ -49,6 +46,7 @@ def empty(rootDir):
                 logging.info('Empty folder ' + dir + ' deleted in ' + rootDir)
 
 # set /movies as working dir and run
+logging.info('Running')
 rootDir = dir + '/movies'
 remover(rootDir)
 mover(rootDir)
@@ -58,3 +56,4 @@ rootDir = dir + '/tv'
 remover(rootDir)
 mover(rootDir)
 empty(rootDir)
+logging.info('Done')

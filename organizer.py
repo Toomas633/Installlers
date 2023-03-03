@@ -17,7 +17,7 @@ def organizer(rootDir):
                 continue
             # otherwise, delete it
             os.remove(os.path.join(dirName, fname))
-    logging.info('Files deleted' + rootDir)
+            logging.info('File ' + fname + ' deleted in ' + rootDir)
 
     # Walk through subdirectories
     for root, dirs, files in os.walk(rootDir):
@@ -33,7 +33,7 @@ def organizer(rootDir):
                     for fname in os.listdir(subdir_path):
                         if fname.endswith('.srt'):
                             shutil.move(os.path.join(subdir_path, fname), root)
-    logging.info('Sub files moved in' + rootDir)
+                            logging.info('Sub file ' + fname +  'moved in ' + rootDir)
 
     # list the files and folders in the working directory
     for filename in os.listdir(rootDir):
@@ -43,13 +43,13 @@ def organizer(rootDir):
             if not os.listdir(filename):
                 # if it is empty, delete it
                 os.rmdir(filename)
-    logging.info('Empty folders deleted' + rootDir)
+                logging.info('Empty folder ' + filename + ' deleted in ' + rootDir)
 
 # set /movies as working dir and run
-logging.debug('Organizing /movies dir')
+logging.info('Organizing /movies dir')
 rootDir = dir + '/movies'
 organizer(rootDir)
 # set /tv as working dir and run
-logging.debug('Organizing /tv dir')
+logging.info('Organizing /tv dir')
 rootDir = dir + '/tv'
 organizer(rootDir)

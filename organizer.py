@@ -20,21 +20,15 @@ def remover(rootDir):
             logging.info('File ' + fname + ' deleted in ' + rootDir)
             
 def mover(rootDir):
-    # Walk through subdirectories
     for root, dirs, files in os.walk(rootDir):
-        # Check if there is a .mkV file
-        if any(fname.endswith('.mkV') for fname in files):
-            # Loop through all subdirectories
-            for subdir in dirs:
-                # Construct the path to the subdirectory
-                subdir_path = os.path.join(root, subdir)
-                # Check if there are .srt files in the subdirectory
-                if any(fname.endswith('.srt') for fname in os.listdir(subdir_path)):
-                    # Move the .srt files to the same directory as the .mkV file
-                    for fname in os.listdir(subdir_path):
-                        if fname.endswith('.srt'):
-                            shutil.move(os.path.join(subdir_path, fname), root)
-                            logging.info('Sub file ' + fname +  'moved in ' + rootDir)
+        for file in files:
+            if file.endswith(".mkv"):
+                # check the directory for a .srt file
+                for subdir in dirs:
+                    if os.path.exists(os.path.join(root, subdir, file[:-4] + ".srt")):
+                        # move the .srt file out of the subfolder
+                        shutil.move(os.path.join(root, subdir, file[:-4] + ".srt"), root)
+                        logging.info('Sub file ' + file +  'moved in ' + rootDir)
 
 def empty(rootDir):
     # Walk through the path and delete empty subfolders

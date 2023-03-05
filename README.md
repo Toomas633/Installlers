@@ -114,14 +114,14 @@ Running:
 
 General use file organizer for removing all but the wanted file extentions, moving files out of subfolders and deleting empty folders.
 Default file is set up for using with Plex for cleaning up torrent downloads (movies and tv shows), but extentions can simply be changed in the python script.
-**PS! The file must be placed into the folder in which you want the subfolders to be organized!**
+The code needs a command line argument for the working directory, but the log file will be generated in the same place as the code file.
 
 ### Default organizer configuration
 
-Organizes the movies and tv directories. placed in the folder that contains them.
+Organizes the movies and tv directories placed in the folder that contains them.
 
 ```
-Dir containing organizer.py
+Dir from organizer.py <path_to_folder>
 ├── movies
 │   ├── Movie folder
 │   │   ├── movie.mkv or movie.mp4
@@ -161,7 +161,7 @@ Dir containing organizer.py
 Returns
 
 ```
-Dir containing organizer.py
+Dir from organizer.py <path_to_folder>
 ├── movies
 │   ├── Movie folder
 │   │   ├── movie.mkv or movie.mp4
@@ -189,6 +189,7 @@ Dir containing organizer.py
 ### Organizer features
 
 * Log file in the same dir called organizer.log (time stamp and operation) (editable in code)
+* Location to the directory containing desired folders for organizing asked as command line argument
 * Removes unwanted files
 * Moves certain files out of subfolders
 * Deletes empty folders
@@ -197,8 +198,8 @@ Dir containing organizer.py
 ### Running organizer
 
 * Download with `sudo wget https://raw.githubusercontent.com/Toomas633/Scripts/main/organizer.py` and place it into the folder you want it to search through (see example above)
-  * Run it in the backround while being in the same folder with `nohup python3 organizer.py`
-  * Or run it always after reboot with cron job by adding `0 * * * * python3 /'path to folder'/organizer.py` using `sudo crontab -e` and adding it to the end of the file
+  * Run it in the backround while being in the same folder with `nohup python3 organizer.py <path_to_folder>`
+  * Or run it always after reboot with cron job by adding `0 * * * * python3 /<path_to_folder>/organizer.py <path_to_folder>` using `sudo crontab -e` and adding it to the end of the file
 
 # Donate
 

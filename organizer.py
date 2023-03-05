@@ -4,9 +4,9 @@ import logging
 import sys
 
 # get working directory from command line argument
-dir = sys.argv[1]
+home = sys.argv[1]
 # Write status to log file
-logging.basicConfig(filename='organizer.log', level=logging.INFO, format='%(asctime)s %(message)s')
+logging.basicConfig(filename=home+'/organizer.log', level=logging.INFO, format='%(asctime)s %(message)s')
     
 def remover(rootDir):
     # Command-line argument was provided
@@ -49,7 +49,7 @@ def empty(rootDir):
 
 # set /movies as working dir and run
 logging.info('------------------------------ Starting ------------------------------')
-rootDir = dir + '/movies'
+rootDir = home + '/movies'
 remover(rootDir)
 mover(rootDir)
 empty(rootDir)

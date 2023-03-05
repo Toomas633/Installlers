@@ -114,7 +114,7 @@ Running:
 
 General use file organizer for removing all but the wanted file extentions, moving files out of subfolders and deleting empty folders.
 Default file is set up for using with Plex for cleaning up torrent downloads (movies and tv shows), but extentions can simply be changed in the python script.
-The code needs a command line argument for the working directory, but the log file will be generated in the same place as the code file.
+PS! The code needs a command line argument for the working directory.
 
 ### Default organizer configuration
 
@@ -188,7 +188,7 @@ Dir from organizer.py <path_to_folder>
 
 ### Organizer features
 
-* Log file in the same dir called organizer.log (time stamp and operation) (editable in code)
+* Log file in the same dir that gets organized called organizer.log (time stamp and operation) (editable in code)
 * Location to the directory containing desired folders for organizing asked as command line argument
 * Removes unwanted files
 * Moves certain files out of subfolders
@@ -199,7 +199,7 @@ Dir from organizer.py <path_to_folder>
 
 * Download with `sudo wget https://raw.githubusercontent.com/Toomas633/Scripts/main/organizer.py` and place it into the folder you want it to search through (see example above)
   * Run it in the backround while being in the same folder with `nohup python3 organizer.py <path_to_folder>`
-  * Or run it always after reboot with cron job by adding `0 * * * * python3 /<path_to_folder>/organizer.py <path_to_folder>` using `sudo crontab -e` and adding it to the end of the file
+  * Or run it always after reboot with cron job by adding `0 * * * * python3 /<path_to_script>/organizer.py <path_to_folder>` using `sudo crontab -e` and adding it to the end of the file
 
 # Donate
 

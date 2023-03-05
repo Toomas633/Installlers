@@ -116,6 +116,10 @@ General use file organizer for removing all but the wanted file extentions, movi
 Default file is set up for using with Plex for cleaning up torrent downloads (movies and tv shows), but extentions can simply be changed in the python script.
 PS! The code needs a command line argument for the working directory.
 
+**I AM NOT RESPONSIBLE FOR ANY DATA LOSS UPON WRONG CONFIGURATION OR CODE CHANGES!** 
+
+Always have backups and check your code and config files.
+
 ### Default organizer configuration
 
 Organizes the movies and tv directories placed in the folder that contains them.

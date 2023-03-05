@@ -1,9 +1,10 @@
 import os
 import shutil
 import logging
+import sys
 
-# get working directory
-dir = os.getcwd()
+# get working directory from command line argument
+dir = sys.argv[1]
 # Write status to log file
 logging.basicConfig(filename='organizer.log', level=logging.INFO, format='%(asctime)s %(message)s')
     

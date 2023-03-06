@@ -54,7 +54,7 @@ remover(rootDir)
 mover(rootDir)
 empty(rootDir)
 # set /tv as working dir and run
-rootDir = dir + '/tv'
+rootDir = home + '/tv'
 remover(rootDir)
 mover(rootDir)
 empty(rootDir)

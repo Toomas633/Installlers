@@ -1,0 +1,14 @@
+[Unit]
+Description=Background service controller for Minecraft server
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /path/to/mc-background.py
+WorkingDirectory=/path/to/folder
+User=root
+Group=root
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

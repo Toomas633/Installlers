@@ -2,12 +2,10 @@
 
 - [Install scripts](#install-scripts)
   - [xmrig](#xmrig)
-    - [How to install](#how-to-install-xmrig)
-    - [Optional config](#optional-xmrig-config)
+- [Minecraft scripts](#minecraft-scripts)
+  - [Server services](#server-services)
 - [Update scripts](#update-scripts)
   - [Portainer &amp; Portainer agent](#portainer)
-    - [Features](#portainer-updater-features)
-    - [Download](#download-portainer-updater)
 - [Donate](#donate)
 
 Some ease of life scrypts that I felt like I could not find or use frequently. Only meant for running on debian systems (Ubuntu a.s.o). **Python scripts should also work on windows but it is not guaranteed!**
@@ -50,6 +48,29 @@ See log file with `cat /home/miner/xmrig.log`
 * Set `max-threads-hint:` to use up only given % on startup
 * Change `priority: 0` value (0-5) to run on the backround and only use up free recources (default) or allocate more importance to it
 
+# Minecraft scripts
+
+- [Server background services](#server-services)
+
+## Server services
+
+Automatically start and/or stop systemd services running on your server. Script outputs will be logged to `mc-background.log` file in the same folder as the python script. Runs every minute (60s sleep configurable in the python file).
+
+Requirements:
+
+* Python 3
+* mcstatus python package `sudo pip install mcstatus`
+
+Installing:
+
+* Download the mc-background.py file from the minecraft folder or via `wget https://raw.githubusercontent.com/Toomas633/Scripts/main/minecraft/mc-background.py`
+* Change the variables (python file) `server_address` to your minecraft server address and `service_name` to the service you want to control
+* Allow running `sudo chmod a+x mc-background.py`
+* Download/place the service file to /etc/systemd/system/ `cd /etc/systemd/system && sudo wget https://raw.githubusercontent.com/Toomas633/Scripts/main/minecraft/mc-background.service`
+* Change the paths in the service file to the correct ones
+* Reload systemd manager `sudo systemctl daemon-reload`
+* Enable autostart and start the service `sudo systemctl enable mc-background.service && sudo systemctl start mc-background.service`
+
 # Update scripts
 
 - [Portainer &amp; Portainer agent](#portainer)
@@ -84,4 +105,5 @@ Automated update script to update Portainer to latest version. Optionally can al
 * update_portainer_agent.sh `sudo wget https://raw.githubusercontent.com/Toomas633/Scripts/main/update/portainer/update_portainer_agent.sh`
 
 # Donate
+
 [toomas633.com/donate](https://toomas633.com/donate/)

@@ -54,8 +54,7 @@ See log file with `cat /home/miner/xmrig.log`
 
 ## Server services
 
-Automatically start and/or stop systemd services running on your server. Script outputs will be logged to `mc-background.log` file in the same folder as the python script. Runs every minute (60s sleep configurable in the python file).
-
+Automatically start and/or stop systemd services running on your server. Script outputs will be logged to `mc-background.log` file in the same folder as the python script.
 Requirements:
 
 * Python 3
@@ -66,10 +65,8 @@ Installing:
 * Download the mc-background.py file from the minecraft folder or via `wget https://raw.githubusercontent.com/Toomas633/Scripts/main/minecraft/mc-background.py`
 * Change the variables (python file) `server_address` to your minecraft server address and `service_name` to the service you want to control
 * Allow running `sudo chmod a+x mc-background.py`
-* Download/place the service file to /etc/systemd/system/ `cd /etc/systemd/system && sudo wget https://raw.githubusercontent.com/Toomas633/Scripts/main/minecraft/mc-background.service`
-* Change the paths in the service file to the correct ones
-* Reload systemd manager `sudo systemctl daemon-reload`
-* Enable autostart and start the service `sudo systemctl enable mc-background.service && sudo systemctl start mc-background.service`
+  * Run it in the backround while being in the same folder with `nohup python3 mc-background.py`
+  * Or run it every minute with cron job by adding `* * * * * python3 /<path_to_script>/mc-background.py` using `sudo crontab -e` and adding it to the end of the file
 
 # Update scripts
 

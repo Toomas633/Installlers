@@ -38,8 +38,7 @@ def is_service_running(service_name):
 if __name__ == "__main__":
     server_address = "ip:port or domain"
     service_name = "example.service"
-
-    while True:
+    try:
         player_count = get_player_count(server_address)
         logging.info(f"Players online: {player_count}")
         if player_count > 0:
@@ -50,4 +49,5 @@ if __name__ == "__main__":
             if is_service_running(service_name) == False:
                 start_service(service_name)
                 logging.info(f"Started {service_name}")
-        time.sleep(60)
+    except Exception as e:
+        logging.exception(e)

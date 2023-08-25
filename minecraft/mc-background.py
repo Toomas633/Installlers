@@ -6,7 +6,6 @@ import logging
 
 path = os.path.dirname(os.path.abspath(__file__))
 logging.basicConfig(filename=path + '/mc-background.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s: %(message)s')
-logging.info(path)
 
 def get_player_count(server_address):
     try:

@@ -1,9 +1,11 @@
 import mcstatus
 import time
+import os
 import subprocess
 import logging
 
-logging.basicConfig(filename='mc-background.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s: %(message)s')
+path = os.path.dirname(os.path.abspath(__file__))
+logging.basicConfig(filename=path + '/mc-background.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s: %(message)s')
 
 def get_player_count(server_address):
     try:

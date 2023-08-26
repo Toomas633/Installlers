@@ -15,10 +15,11 @@ def clear_log(log_file_path):
     with open(log_file_path, "r") as file:
         lines = file.readlines()
 
-    updated_lines = [line for line in lines if not line.startswith("[") or datetime.datetime.strptime(line[1:21], ) >= cutoff_date]
+    filtered_lines = [line for line in lines if line.startswith("[")]
+    filtered_lines = [line for line in filtered_lines if datetime.datetime.strptime(line.split(']')[0][1:], '%Y-%m-%d %H:%M:%S,%f') >= cutoff_date]
 
     with open(log_file_path, "w") as file:
-        file.writelines(updated_lines)
+        file.writelines(filtered_lines)
 
 
 def get_player_count(server_address):

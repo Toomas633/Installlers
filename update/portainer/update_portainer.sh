@@ -10,6 +10,6 @@ read -n4 -p "Update portainer agent? (yes/no):" service_status
 case $service_status in
   y|Y|yes|Yes|YES) sudo wget https://raw.githubusercontent.com/Toomas633/Scripts/main/update/portainer/update_portainer_agent.sh
                    sudo chmod a+x update_portainer_agent.sh
-                   sudo ./update_portainer_agent.sh ;; 
+                   sudo ./update_portainer_agent.sh && sudo rm update_portainer_agent.sh;; 
   n|N|no|No|NO) echo Done! ;;
 esac

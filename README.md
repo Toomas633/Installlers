@@ -44,12 +44,6 @@ See log file with `cat /home/miner/xmrig.log`
 * Allow running with `sudo chmod a+x xmrig.sh`
 * Run `sudo ./xmrig.sh`, fill in the 3 questions, and wait
 
-### Optional xmrig config
-
-* Add `"rx/0": [-1, -1, -1],` to `/home/miner/xmrig/build/config.json` under `cpu:` configuration to control cpu usage (each -1 represents a thread)
-* Set `max-threads-hint:` to use up only given % on startup
-* Change `priority: 0` value (0-5) to run on the backround and only use up free recources (default) or allocate more importance to it
-
 # Minecraft scripts
 
 - [Server background services](#server-services)

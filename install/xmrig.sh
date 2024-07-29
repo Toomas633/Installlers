@@ -47,13 +47,32 @@ sleep 5
 cat > config.json << EOF
 {
     "autosave": true,
+    "background": true,
+    "colors": true,
+    "title": true,
+    "randomx": {
+        "init": -1,
+        "init-avx2": -1,
+        "mode": "auto",
+        "1gb-pages": true,
+        "rdmsr": true,
+        "wrmsr": false,
+        "cache_qos": false,
+        "numa": true,
+        "scratchpad_prefetch_mode": 1
+    },
     "cpu": {
         "enabled": true,
+         "huge-pages": true,
+        "huge-pages-jit": false,
+        "yield": true,
+        "asm": true,
         "priority": 0,
-        "max-threads-hint": 100,
+        "max-threads-hint": 75,
+        "rx/0": [-1, -1, -1],
     },
-    "opencl": false,
-    "cuda": false,
+    "opencl": "false",
+    "cuda": "false",
     "pools": [
         {
             "coin": "monero",
@@ -61,14 +80,29 @@ cat > config.json << EOF
             "url": "$pool_address",
             "user": "$wallet_address",
             "pass": "$pass",
+            "rig-id": null,
             "tls": false,
             "keepalive": false,
-            "nicehash": false
+            "nicehash": false,
         }
-    ]
+    ],
+    "retries": 5,
+    "retry-pause": 5,
+    "print-time": 60,
+    "health-print-time": 60,
+    "dmi": true,
+    "syslog": false
 }
 EOF
 
+cat > /home/miner/xmrig/scripts/remove_xmrig_log.sh << EOF
+#!/bin/bash
+if [ -e /home/miner/xmrig.log ]; then
+    rm /home/miner/xmrig.log
+fi
+EOF
+
+chmod +x /home/miner/xmrig/scripts/remove_xmrig_log.sh
 echo ----Building autostart service---- 
 
 sleep 3
@@ -80,6 +114,7 @@ After=network.target
 [Service]
 Type=forking
 GuessMainPID=no
+ExecStartPre=/home/miner/xmrig/scripts/remove_xmrig_log.sh
 ExecStart=/home/miner/xmrig/build/xmrig -c /home/miner/xmrig/build/config.json -l /home/miner/xmrig.log -B
 Restart=always
 User=miner

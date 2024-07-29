@@ -63,7 +63,7 @@ cat > config.json << EOF
     },
     "cpu": {
         "enabled": true,
-         "huge-pages": true,
+        "huge-pages": true,
         "huge-pages-jit": false,
         "yield": true,
         "asm": true,

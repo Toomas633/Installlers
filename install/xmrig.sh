@@ -69,10 +69,11 @@ cat > config.json << EOF
         "asm": true,
         "priority": 0,
         "max-threads-hint": 75,
-        "rx/0": [-1, -1, -1],
+        "rx/0": [-1, -1, -1]
     },
-    "opencl": "false",
-    "cuda": "false",
+    "opencl": false,
+    "cuda": false,
+    "log-file": "/home/miner/xmrig.log",
     "pools": [
         {
             "coin": "monero",
@@ -83,7 +84,7 @@ cat > config.json << EOF
             "rig-id": null,
             "tls": false,
             "keepalive": false,
-            "nicehash": false,
+            "nicehash": false
         }
     ],
     "retries": 5,
